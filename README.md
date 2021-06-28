@@ -1,3 +1,10 @@
+[![Gitter](https://img.shields.io/badge/Available%20on-Intersystems%20Open%20Exchange-00b2a9.svg)](https://openexchange.intersystems.com/package/eap-sql2xlsx)
+[![GitHub all releases](https://img.shields.io/badge/Available%20on-GitHub-black)](https://github.com/SergeyMi37/eap-sql2xlsx)
+
+[![](https://img.shields.io/badge/InterSystems-IRIS-blue.svg)](https://www.intersystems.com/products/intersystems-iris/)
+[![license](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+ZAPM is a shell - extends the ZPM shell and adds any other commands.
 Python openxl
 
 A simple example of using the python openxl library to export a request to an excel file
@@ -39,5 +46,4 @@ Records imported: 891
 do ##class(dc.msw.py.xlsx).sql2xlsx("select * FROM Data.Titanic","","/tmp/titanic.xlsx")
  
 Save into /tmp/titanic.xlsx rows: 891
-APPTOOLSADMIN>
 ```
