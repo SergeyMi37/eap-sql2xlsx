@@ -7,7 +7,7 @@
 
 ## What's new
 
-Added use of the fileserver project to demonstrate how to get a generated xlsx file
+Added use of the [fileserver](https://openexchange.intersystems.com/package/Cache-FileServer) and [csvgen](https://openexchange.intersystems.com/package/csvgen) projects to demonstrate how to get a generated xlsx file
 
 ## eap-sql2xlsx
 
