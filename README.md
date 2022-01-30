@@ -3,47 +3,81 @@
 
 [![](https://img.shields.io/badge/InterSystems-IRIS-blue.svg)](https://www.intersystems.com/products/intersystems-iris/)
 [![license](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Demo](https://img.shields.io/badge/Demo%20on-GCR-black)](https://sql2xlsx.demo.community.intersystems.com/fileserver/files)
 
-ZAPM is a shell - extends the ZPM shell and adds any other commands.
-Python openxl
+## What's new
+
+Added use of the fileserver project to demonstrate how to get a generated xlsx file
+
+## eap-sql2xlsx
 
 A simple example of using the python openxl library to export a request to an excel file
 
-# Requirements
-`IRIS for Windows (x86-64) 2021.1.0PYTHON (Build 237U) Wed Jun 2 2021 10:38:20 EDT`
+## Requirements
+`IRIS for UNIX (Ubuntu Server LTS for x86-64 Containers) 2021.2 (Build 649U) Thu Jan 20 2022 08:53:15 EST`
 
-# Setup
-1. Clone repo
+## Installation with ZPM
+
+If ZPM the current instance is not installed, then in one line you can install the latest version of ZPM.
 ```
-cd /tmp
-git clone https://github.com/SergeyMi37/eap-sql2xlsx.git
-cd eap-sql2xlsx
+zn "%SYS" d ##class(Security.SSLConfigs).Create("z") s r=##class(%Net.HttpRequest).%New(),r.Server="pm.community.intersystems.com",r.SSLConfiguration="z" d r.Get("/packages/zpm/latest/installer"),$system.OBJ.LoadStream(r.HttpResponse.Data,"c")
+```
+If ZPM is installed, then ZPM can be set with the command
+```
+zpm:USER>install eap-sql2xlsx
+```
+## Installation with Docker
+
+## Prerequisites
+Make sure you have [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [Docker desktop](https://www.docker.com/products/docker-desktop) installed.
+
+## Installation 
+Clone/git pull the repo into any local directory
+
+```
+$ git clone https://github.com/SergeyMi37/eap-sql2xlsx
 ```
 
-2. Load source code into IRIS.
+Open the terminal in this directory and run:
+
 ```
-zn "USER"
-do $system.OBJ.LoadDir("/tmp/eap-sql2xlsx/src", "ck")
+$ docker-compose build
 ```
 
-or
+3. Run the IRIS container with your project:
+
 ```
-zn "USER"
-zpm "install eap-sql2xlsx"
+$ docker-compose up -d
+...
+$ docker-compose exec iris iris session iris
 ```
 
-# Let's prepare a table for testing
+
+## The following commands will be executed during the installation process
+
 ```
 USER>zpm "install csvgen"
-USER>d ##class(community.csvgen).GenerateFromURL("https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv",",","Data.Titanic")
+...
+USER>do ##class(community.csvgen).GenerateFromURL("https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv",",","Data.Titanic")
 
 Class name: Data.Titanic
 Header: PassengerId INTEGER,Survived INTEGER,Pclass INTEGER,Name VARCHAR(250),Sex VARCHAR(250),Age INTEGER,SibSp INTEGER,Parch INTEGER,Ticket VARCHAR(250),Fare MONEY,Cabin VARCHAR(250),Embarked VARCHAR(250)
 Records imported: 891
+
+USER>do ##class(dc.msw.py.xlsx).sql2xlsx("select * FROM Data.Titanic","","/usr/irissys/mgr/Temp/titanic.xlsx")
+
+Save into /usr/irissys/mgr/Temp/titanic.xlsx rows: 891
+
+USER>zpm "install fileserver"
+...
+USER>do ##class(Fileserver.File).AddFile("/usr/irissys/mgr/Temp/titanic.xlsx")
+
 ```
-# Test
-```
-do ##class(dc.msw.py.xlsx).sql2xlsx("select * FROM Data.Titanic","","/tmp/titanic.xlsx")
- 
-Save into /tmp/titanic.xlsx rows: 891
-```
+
+## The generated file can be obtained from the interface via the link
+
+http://localhost:52663/fileserver/files
+
+## Container for this project deployed to the cloud for demonstration
+
+[![Demo](https://img.shields.io/badge/Demo%20on-GCR-black)](https://sql2xlsx.demo.community.intersystems.com/fileserver/files)
