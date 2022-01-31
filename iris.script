@@ -6,6 +6,7 @@ Do ##class(Security.Users).UnExpireUserPasswords("*")
 zn "USER"
 zpm "install csvgen"
 zpm "install fileserver"
+zpm "install webterminal"
 zpm "load /opt/irisapp/ -v":1:1
 
 do ##class(community.csvgen).GenerateFromURL("https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv",",","Data.Titanic")
