@@ -1,15 +1,19 @@
+ [![Repo-GitHub](https://img.shields.io/badge/dynamic/xml?color=gold&label=GitHub%20module.xml&prefix=ver.&query=%2F%2FVersion&url=https%3A%2F%2Fraw.githubusercontent.com%2Fsergeymi37%2Feap-sql2xlsx%2Fmaster%2Fmodule.xml)](https://raw.githubusercontent.com/sergeymi37/eap-sql2xlsx/master/module.xml)
+[![OEX-apptools-infochest](https://img.shields.io/badge/dynamic/json?url=https:%2F%2Fpm.community.intersystems.com%2Fpackages%2Feap-sql2xlsx%2F&label=ZPM-pm.community.intersystems.com&query=$.version&color=green&prefix=eap-sql2xlsx)](https://pm.community.intersystems.com/packages/eap-sql2xlsx)
+
+[![Docker-ports](https://img.shields.io/badge/dynamic/yaml?color=blue&label=docker-compose&prefix=ports%20-%20&query=%24.services.iris.ports&url=https%3A%2F%2Fraw.githubusercontent.com%2Fsergeymi37%2Feap-sql2xlsx%2Fmaster%2Fdocker-compose.yml)](https://raw.githubusercontent.com/sergeymi37/eap-sql2xlsx/master/docker-compose.yml)
+
+## eap-sql2xlsx
+
 [![Gitter](https://img.shields.io/badge/Available%20on-Intersystems%20Open%20Exchange-00b2a9.svg)](https://openexchange.intersystems.com/package/eap-sql2xlsx)
 [![GitHub all releases](https://img.shields.io/badge/Available%20on-GitHub-black)](https://github.com/SergeyMi37/eap-sql2xlsx)
 
 [![](https://img.shields.io/badge/InterSystems-IRIS-blue.svg)](https://www.intersystems.com/products/intersystems-iris/)
-[![license](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Demo](https://img.shields.io/badge/Demo%20on-GCR-black)](https://sql2xlsx.demo.community.intersystems.com/fileserver/files)
 
 ## What's new
 
 Added use of the [fileserver](https://openexchange.intersystems.com/package/Cache-FileServer) and [csvgen](https://openexchange.intersystems.com/package/csvgen) projects to demonstrate how to get a generated xlsx file
-
-## eap-sql2xlsx
 
 A simple example of using the python openxl library to export a request to an excel file
 
