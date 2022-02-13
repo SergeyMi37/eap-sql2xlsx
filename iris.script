@@ -7,7 +7,7 @@ zn "USER"
 zpm "install csvgen"
 zpm "install fileserver"
 zpm "install webterminal"
-zpm "load /opt/irisapp/ -v":1:1
+zpm "load /opt/irisapp/ -v":1
 
 do ##class(community.csvgen).GenerateFromURL("https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv",",","Data.Titanic")
 do ##class(dc.msw.py.xlsx).sql2xlsx("select * FROM Data.Titanic","","/usr/irissys/mgr/Temp/titanic.xlsx")
