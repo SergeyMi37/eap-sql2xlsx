@@ -3,13 +3,13 @@
   <Document name="eap-sql2xlsx.ZPM">
     <Module>
       <Name>eap-sql2xlsx</Name>
-      <Version>1.0.0</Version>
+      <Version>1.0.1</Version>
       <Description>A simple example of using the python openxl library to export a request to an excel file</Description>
       <Packaging>module</Packaging>
 	  <Keywords>eap paython xlsx</Keywords>
 		<Author>
 		<Person>Mikhaylenko Sergey</Person>
-		<CopyrightDate>2021</CopyrightDate>
+		<CopyrightDate>2023</CopyrightDate>
 		<License>MIT</License>
 		</Author>
       <SourcesRoot>src</SourcesRoot>
