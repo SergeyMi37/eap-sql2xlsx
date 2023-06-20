@@ -13,8 +13,8 @@ zpm "load https://github.com/SergeyMi37/apptools-admin/"
 zpm "load https://github.com/intersystems-community/webterminal/"
 zpm "load /opt/irisapp/ -v":1
 
-do ##class(community.csvgen).GenerateFromURL("https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv",",","Data.Titanic")
-do ##class(apptools.python.xlsx).sql2xlsx("select * FROM Data.Titanic","","/usr/irissys/mgr/Temp/titanic.xlsx")
-do ##class(Fileserver.File).AddFile("/usr/irissys/mgr/Temp/titanic.xlsx")
+;do ##class(community.csvgen).GenerateFromURL("https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv",",","Data.Titanic")
+;do ##class(apptools.python.xlsx).sql2xlsx("select * FROM Data.Titanic","","/usr/irissys/mgr/Temp/titanic.xlsx")
+;do ##class(Fileserver.File).AddFile("/usr/irissys/mgr/Temp/titanic.xlsx")
 
 halt
